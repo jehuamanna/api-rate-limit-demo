@@ -4,10 +4,9 @@ class Queue {
   constructor() {
     this.items = [];
   }
-  enqueue(item, queue, limit) {
-    this.items.push(item)
+  enqueue(item, url) {
+    this.items.push({ item, url });
   }
-  myPromise() {}
   dequeue() {
     return this.items.shift();
   }

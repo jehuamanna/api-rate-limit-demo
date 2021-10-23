@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import "./styles.css";
 import RL from "./rate-limiter";
 
-
-const LIMIT = 2
-const API_CALLS = 200
+const LIMIT = 2;
+const API_CALLS = 200;
 export default function App() {
   const [list, setList] = useState([]);
   const handleClick = async (index) => {
@@ -15,6 +14,7 @@ export default function App() {
         index
       )
       .then((res) => {
+        console.log(res.data.name);
         setList((prevList) => prevList.concat(res?.data?.name));
       });
   };
