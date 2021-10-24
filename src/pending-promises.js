@@ -14,9 +14,9 @@ class PendingPromises {
   remove(index) {
     this.pendingPromises.splice(index, 1);
     if (!this.queue.isQueueEmpty()) {
-      const { item, url } = this.queue.dequeue();
-      const { axiosPromise, setValue } = item;
       if (this.length() < this.limit) {
+        const { item, url } = this.queue.dequeue();
+        const { axiosPromise, setValue } = item;
         this.add({ axiosPromise, setValue }, url);
       }
     }

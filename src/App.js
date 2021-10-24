@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./styles.css";
 import RL from "./rate-limiter";
 
-const LIMIT = 2;
+const LIMIT = 1;
 const API_CALLS = 200;
 export default function App() {
   const [list, setList] = useState([]);
