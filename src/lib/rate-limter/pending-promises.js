@@ -5,8 +5,12 @@ class PendingPromises {
     this.pendingPromises = [];
   }
   add(item, url) {
-    const index = this.pendingPromises.push({ item, url });
-    this.resolve(index - 1);
+    if (this.length() < this.limit) {
+      const index = this.pendingPromises.push({ item, url });
+      this.resolve(index - 1);
+    } else {
+      this.queue.enqueue(item);
+    }
   }
   length() {
     return this.pendingPromises.length;
